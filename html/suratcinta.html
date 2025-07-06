@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Cinta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/surat.css">
+</head>
+<body>
+  <div class="surat">
+    <h1>Untuk Kamu yang Aku Cintai 💌</h1>
+    <div id="teksSurat"></div>
+    <a href="index.html" class="kembali">← Kembali ke Beranda</a>
+  </div>
+
+  <audio src="../assets/sound/surat.mp3" autoplay loop></audio>
+
+  <script>
+    const teks = `Selamat ulang tahun, cintaku 💖
+
+Di hari istimewa ini, aku ingin kamu tahu betapa berharganya dirimu di hidupku.
+Terima kasih karena sudah hadir dan memberikan warna dalam setiap hariku.
+
+Kamu adalah tawa di tengah lelahku, peluk hangat di hari dinginku, dan cahaya di malam tergelapku.
+
+Aku berharap semua mimpimu tercapai, dan semoga aku bisa menjadi bagian dari kisah indahmu selamanya.
+
+Aku cinta kamu, hari ini dan seterusnya. 🌹✨`;
+
+    let i = 0;
+    const speed = 40;
+
+    function ketik() {
+      if (i < teks.length) {
+        document.getElementById("teksSurat").innerHTML += teks.charAt(i);
+        i++;
+        setTimeout(ketik, speed);
+      }
+    }
+
+    window.onload = ketik;
+  </script>
+</body>
+</html>

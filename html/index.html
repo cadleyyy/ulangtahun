@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun, Cintaku</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffeef4;
+      color: #c71585;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      color: #c71585;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 180px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #c71585;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin: 2rem 0 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #c71585;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .flower {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      animation: fall 8s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Selamat Ulang Tahun, Cintaku</h1>
+  <p class="subtitle">Hari ini kamu spesial sekali. Jadi aku buat sesuatu yang spesial juga ❤️</p>
+
+  <div class="menu">
+    <div class="card">
+      <a href="suratcinta.html">💌 Surat Cinta</a>
+      <p>Bacalah isi hatiku untukmu.</p>
+    </div>
+    <div class="card">
+      <a href="galerikenangan.html">📸 Galeri Kenangan</a>
+      <p>Lihat momen indah kita.</p>
+    </div>
+    <div class="card">
+      <a href="playlist.html">🎧 Playlist Kita</a>
+      <p>Lagu-lagu yang menggambarkan kita.</p>
+    </div>
+    <div class="card">
+      <a href="blog.html">📝 Catatan Manis</a>
+      <p>Kata-kata kecil dariku untukmu.</p>
+    </div>
+  </div>
+
+  <footer>
+    <a href="kado.html">🎁 Lihat Kadomu</a>
+    <p>Dibuat dengan penuh cinta ❤️ oleh orang yang paling sayang kamu.</p>
+  </footer>
+
+  <audio id="backsound" src="/assets/sound/audiohbd.mp3" autoplay loop></audio>
+
+  <script>
+    function createFlower() {
+      const flower = document.createElement('img');
+      flower.src = '../assets/img/rose.png';
+      flower.className = 'flower';
+      flower.style.left = Math.random() * window.innerWidth + 'px';
+      flower.style.animationDuration = (6 + Math.random() * 4) + 's';
+      document.body.appendChild(flower);
+
+      setTimeout(() => flower.remove(), 8000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playlist Kita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-gradient-to-b from-pink-100 to-white min-h-screen font-sans flex flex-col items-center justify-center p-6">
+
+  <h1 class="text-3xl font-bold text-pink-700 mb-2">🎶 Playlist Kita</h1>
+  <p class="text-pink-600 mb-6 text-center">Lagu-lagu ini selalu mengingatkanku pada kamu 💖</p>
+
+  <div class="w-full max-w-md space-y-6">
+    <div class="bg-white p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold text-pink-600 mb-2">1. Lagu Pertama</h2>
+      <audio controls class="w-full">
+        <source src="../assets/sound/penjagahati.mp3" type="audio/mp3" />
+        Browser kamu tidak mendukung audio.
+      </audio>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold text-pink-600 mb-2">2. Lagu Kedua</h2>
+      <audio controls class="w-full">
+        <source src="../assets/sound/sempurna.mp3" type="audio/mp3" />
+        Browser kamu tidak mendukung audio.
+      </audio>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold text-pink-600 mb-2">3. Lagu Ketiga</h2>
+      <audio controls class="w-full">
+        <source src="../assets/sound/kekasihterhebat.mp3" type="audio/mp3" />
+        Browser kamu tidak mendukung audio.
+      </audio>
+    </div>
+  </div>
+
+  <a href="index.html" class="mt-8 text-pink-500 underline hover:text-pink-700">← Kembali ke Halaman Utama</a>
+
+  <!-- falling flowers -->
+    <script>
+        const totalRoses = 50; // jumlah bunga yang jatuh
+        for (let i = 0; i < totalRoses; i++) {
+            const rose = document.createElement("img");
+            rose.src = "../assets/img/rose.png";
+            rose.classList.add("fixed", "top-0", "z-10", "pointer-events-none");
+            rose.style.width = "40px";
+            rose.style.left = `${Math.random() * 100}vw`;
+            rose.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
+            document.body.appendChild(rose);
+        }
+    </script>
+
+</body>
+</html>

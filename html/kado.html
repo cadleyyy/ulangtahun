@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kue Ulang Tahun Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/kado.css">
+</head>
+<body>
+  <h1>🎂 Kue Ulang Tahun Digital</h1>
+  <p>Tiup lilinnya dan buat harapan terbaikmu ✨</p>
+
+  <img src="../assets/img/kue.png" alt="Kue Ulang Tahun" class="cake-image">
+
+  <button onclick="tiupLilin()">🥳 Tiup Lilin</button>
+
+  <div id="wishMessage">
+    Semoga hari ulang tahunmu penuh kebahagiaan, cinta, dan harapan yang indah! 🎉💖
+    <br><br>
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
+  </div>
+
+  <audio id="backsound" src="../assets/sound/audiohbd.mp3" autoplay loop></audio>
+  <audio id="blowSound" src="../assets/sound/meniup.mp3"></audio>
+  <audio id="cheerSound" src="../assets/sound/cheer.mp3"></audio>
+  <audio id="finalCheer" src="../assets/sound/hore.mp3"></audio>
+
+  <canvas id="confettiCanvas" class="confetti"></canvas>
+
+  <script>
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetti = [];
+    for (let i = 0; i < 300; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        size: Math.random() * 5 + 5,
+        color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+        speed: Math.random() * 3 + 2,
+        sway: Math.random() * 2
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+        c.y += c.speed;
+        c.x += Math.sin(c.y * 0.05) * c.sway;
+        if (c.y > canvas.height) c.y = -10;
+      });
+      requestAnimationFrame(drawConfetti);
+    }
+
+    function spawnBalloons() {
+      for (let i = 0; i < 10; i++) {
+        const b = document.createElement('div');
+        b.classList.add('balloon');
+        b.style.left = `${Math.random() * 100}vw`;
+        b.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 70%)`;
+        b.style.animationDuration = `${6 + Math.random() * 6}s`;
+        document.body.appendChild(b);
+      }
+    }
+
+    function tiupLilin() {
+      document.getElementById("blowSound").play();
+      setTimeout(() => {
+        document.getElementById("cheerSound").play();
+        drawConfetti();
+        document.getElementById("wishMessage").style.display = 'block';
+        document.getElementById("finalCheer").play();
+      }, 1000);
+    }
+
+    spawnBalloons();
+  </script>
+</body>
+</html>
